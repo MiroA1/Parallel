@@ -12,7 +12,7 @@ add_executable(parallel parallel.c)
 
 target_compile_options(parallel PRIVATE "/Qvec-report:2")
 target_compile_options(parallel PRIVATE "/fp:fast")
-#target_compile_options(parallel PRIVATE "/arch:AVX")
+#target_compile_options(parallel PRIVATE "/arch:AVX512")
 
 
 
@@ -38,6 +38,38 @@ target_compile_options(parallel PRIVATE "/fp:fast")
 #     "${CMAKE_SOURCE_DIR}/parallel.cl"
 #     $<TARGET_FILE_DIR:parallel>
 #     VERBATIM)
+
+
+#set(OpenCL_INCLUDE_DIR "C:/Users/miroa/Downloads/OpenCL-SDK-v2024.10.24-Win-x64/OpenCL-SDK-v2024.10.24-Win-x64/include")
+#set(OpenCL_LIBRARY "C:/Users/miroa/Downloads/OpenCL-SDK-v2024.10.24-Win-x64/OpenCL-SDK-v2024.10.24-Win-x64/lib/OpenCL.lib")
+#
+#find_package(OpenCL REQUIRED)
+#include_directories(parallel ${OpenCL_INCLUDE_DIR})
+#target_link_libraries(parallel ${OpenCL_LIBRARY})
+#add_custom_command(
+#    TARGET parallel
+#    POST_BUILD
+#    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#    "${CMAKE_SOURCE_DIR}/parallel.cl"
+#    $<TARGET_FILE_DIR:parallel>
+#    VERBATIM
+#)
+
+set(OPENCL_SDK_DIR "${CMAKE_SOURCE_DIR}/OpenCL-SDK-v2024.10.24-Win-x64")
+set(OpenCL_INCLUDE_DIR "${OPENCL_SDK_DIR}/include")
+set(OpenCL_LIBRARY "${OPENCL_SDK_DIR}/lib/OpenCL.lib")
+
+find_package(OpenCL REQUIRED)
+include_directories(parallel ${OpenCL_INCLUDE_DIR})
+target_link_libraries(parallel ${OpenCL_LIBRARY})
+add_custom_command(
+    TARGET parallel
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${CMAKE_SOURCE_DIR}/parallel.cl"
+    $<TARGET_FILE_DIR:parallel>
+    VERBATIM
+)
 
 
 # Find and link SDL2

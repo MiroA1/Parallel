@@ -100,7 +100,6 @@ satellite* backupSatelites;
 
 
 
-
 // ## You may add your own initialization routines here ##
 void init(){
 
@@ -187,90 +186,91 @@ void parallelPhysicsEngine(){
 // ## You are asked to make this code parallel ##
 // Rendering loop (This is called once a frame after physics engine) 
 // Decides the color for each pixel.
-void parallelGraphicsEngine(){
+void parallelGraphicsEngine() {
 
-   int tmpMousePosX = mousePosX;
-   int tmpMousePosY = mousePosY;
+    int tmpMousePosX = mousePosX;
+    int tmpMousePosY = mousePosY;
 
     // Graphics pixel loop
     int i;
-    #pragma omp parallel for
-    for(i = 0 ;i < SIZE; ++i) {
+#pragma omp parallel for
+    for (i = 0;i < SIZE; ++i) {
 
-      // Row wise ordering
-      floatvector pixel = {.x = i % WINDOW_WIDTH, .y = i / WINDOW_WIDTH};
+        // Row wise ordering
+        floatvector pixel = { .x = i % WINDOW_WIDTH, .y = i / WINDOW_WIDTH };
 
-      // Draw the black hole
-      floatvector positionToBlackHole = {.x = pixel.x -
-         tmpMousePosX, .y = pixel.y - tmpMousePosY};
-      float distToBlackHoleSquared =
-         positionToBlackHole.x * positionToBlackHole.x +
-         positionToBlackHole.y * positionToBlackHole.y;
-      float distToBlackHole = sqrt(distToBlackHoleSquared);
-      if (distToBlackHoleSquared < BLACK_HOLE_RADIUS * BLACK_HOLE_RADIUS) {
-         pixels[i].red = 0;
-         pixels[i].green = 0;
-         pixels[i].blue = 0;
-         continue; // Black hole drawing done
-      }
+        // Draw the black hole
+        floatvector positionToBlackHole = { .x = pixel.x -
+           tmpMousePosX, .y = pixel.y - tmpMousePosY };
+        float distToBlackHoleSquared =
+            positionToBlackHole.x * positionToBlackHole.x +
+            positionToBlackHole.y * positionToBlackHole.y;
+        float distToBlackHole = sqrt(distToBlackHoleSquared);
+        if (distToBlackHoleSquared < BLACK_HOLE_RADIUS * BLACK_HOLE_RADIUS) {
+            pixels[i].red = 0;
+            pixels[i].green = 0;
+            pixels[i].blue = 0;
+            continue; // Black hole drawing done
+        }
 
-      // This color is used for coloring the pixel
-      color_f32 renderColor = {.red = 0.f, .green = 0.f, .blue = 0.f};
+        // This color is used for coloring the pixel
+        color_f32 renderColor = { .red = 0.f, .green = 0.f, .blue = 0.f };
 
-      // Find closest satellite
-      float shortestDistance = INFINITY;
+        // Find closest satellite
+        float shortestDistance = INFINITY;
 
-      float weights = 0.f;
-      int hitsSatellite = 0;
+        float weights = 0.f;
+        int hitsSatellite = 0;
 
-      // First Graphics satellite loop: Find the closest satellite.
-      int j;
-      for(j = 0; j < SATELLITE_COUNT; ++j){
-         floatvector difference = {.x = pixel.x - satellites[j].position.x,
-                                   .y = pixel.y - satellites[j].position.y};
-         float distance = sqrt(difference.x * difference.x + 
-                               difference.y * difference.y);
+        // First Graphics satellite loop: Find the closest satellite.
+        int j;
+        for (j = 0; j < SATELLITE_COUNT; ++j) {
+            floatvector difference = { .x = pixel.x - satellites[j].position.x,
+                                      .y = pixel.y - satellites[j].position.y };
+            float distance = sqrt(difference.x * difference.x +
+                difference.y * difference.y);
 
-         if(distance < SATELLITE_RADIUS) {
-            renderColor.red = 1.0f;
-            renderColor.green = 1.0f;
-            renderColor.blue = 1.0f;
-            hitsSatellite = 1;
-            break;
-         } else {
-            float weight = 1.0f / (distance*distance*distance*distance);
-            weights += weight;
-            if(distance < shortestDistance){
-               shortestDistance = distance;
-               renderColor = satellites[j].identifier;
+            if (distance < SATELLITE_RADIUS) {
+                renderColor.red = 1.0f;
+                renderColor.green = 1.0f;
+                renderColor.blue = 1.0f;
+                hitsSatellite = 1;
+                break;
             }
-         }
-      }
+            else {
+                float weight = 1.0f / (distance * distance * distance * distance);
+                weights += weight;
+                if (distance < shortestDistance) {
+                    shortestDistance = distance;
+                    renderColor = satellites[j].identifier;
+                }
+            }
+        }
 
-      // Second graphics loop: Calculate the color based on distance to every satellite.
-      if (!hitsSatellite) {
-         int k;
-         for(k = 0; k < SATELLITE_COUNT; ++k){
-            floatvector difference = {.x = pixel.x - satellites[k].position.x,
-                                      .y = pixel.y - satellites[k].position.y};
-            float dist2 = (difference.x * difference.x +
-                           difference.y * difference.y);
-            float weight = 1.0f/(dist2* dist2);
+        // Second graphics loop: Calculate the color based on distance to every satellite.
+        if (!hitsSatellite) {
+            int k;
+            for (k = 0; k < SATELLITE_COUNT; ++k) {
+                floatvector difference = { .x = pixel.x - satellites[k].position.x,
+                                          .y = pixel.y - satellites[k].position.y };
+                float dist2 = (difference.x * difference.x +
+                    difference.y * difference.y);
+                float weight = 1.0f / (dist2 * dist2);
 
-            renderColor.red += (satellites[k].identifier.red *
-                                weight /weights) * 3.0f;
+                renderColor.red += (satellites[k].identifier.red *
+                    weight / weights) * 3.0f;
 
-            renderColor.green += (satellites[k].identifier.green *
-                                  weight / weights) * 3.0f;
+                renderColor.green += (satellites[k].identifier.green *
+                    weight / weights) * 3.0f;
 
-            renderColor.blue += (satellites[k].identifier.blue *
-                                 weight / weights) * 3.0f;
-         }
-      }
-      pixels[i].red = (uint8_t) (renderColor.red * 255.0f);
-      pixels[i].green = (uint8_t) (renderColor.green * 255.0f);
-      pixels[i].blue = (uint8_t) (renderColor.blue * 255.0f);
-   }
+                renderColor.blue += (satellites[k].identifier.blue *
+                    weight / weights) * 3.0f;
+            }
+        }
+        pixels[i].red = (uint8_t)(renderColor.red * 255.0f);
+        pixels[i].green = (uint8_t)(renderColor.green * 255.0f);
+        pixels[i].blue = (uint8_t)(renderColor.blue * 255.0f);
+    }
 }
 
 // ## You may add your own destrcution routines here ##
