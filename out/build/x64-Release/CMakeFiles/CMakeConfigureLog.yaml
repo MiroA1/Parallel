@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-vyywoz"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-vyywoz"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-afazcu"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-afazcu"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -119,11 +119,11 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-vyywoz'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-afazcu'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_a50c2
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_a50c2.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_a50c2.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_a50c2.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_a50c2.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_a50c2.exe /implib:cmTC_a50c2.lib /pdb:cmTC_a50c2.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_8c2c3
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_8c2c3.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_8c2c3.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_8c2c3.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_8c2c3.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_8c2c3.exe /implib:cmTC_8c2c3.lib /pdb:cmTC_8c2c3.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -163,8 +163,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-g3vzxp"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-g3vzxp"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-u7cft9"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-u7cft9"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -174,11 +174,11 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-g3vzxp'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-u7cft9'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_33340
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_33340.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_33340.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_33340.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_33340.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_33340.exe /implib:cmTC_33340.lib /pdb:cmTC_33340.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_fdd3c
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_fdd3c.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_fdd3c.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_fdd3c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_fdd3c.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_fdd3c.exe /implib:cmTC_fdd3c.lib /pdb:cmTC_fdd3c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -217,8 +217,8 @@ events:
       - "CMakeLists.txt:21 (find_package)"
     description: "Detecting C OpenMP compiler info"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fwj93j"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fwj93j"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-6fu2m2"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-6fu2m2"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -227,11 +227,11 @@ events:
       variable: "OpenMP_COMPILE_RESULT_C_openmp"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fwj93j'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-6fu2m2'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_271c2
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_271c2.dir\\OpenMPTryFlag.c.obj /FdCMakeFiles\\cmTC_271c2.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-fwj93j\\OpenMPTryFlag.c
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_271c2.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_271c2.dir\\OpenMPTryFlag.c.obj  /out:cmTC_271c2.exe /implib:cmTC_271c2.lib /pdb:cmTC_271c2.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_aedd7
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_aedd7.dir\\OpenMPTryFlag.c.obj /FdCMakeFiles\\cmTC_aedd7.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-6fu2m2\\OpenMPTryFlag.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_aedd7.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_aedd7.dir\\OpenMPTryFlag.c.obj  /out:cmTC_aedd7.exe /implib:cmTC_aedd7.lib /pdb:cmTC_aedd7.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -242,8 +242,8 @@ events:
       - "CMakeLists.txt:21 (find_package)"
     description: "Detecting CXX OpenMP compiler info"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-01jvbg"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-01jvbg"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ooj51e"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ooj51e"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -252,11 +252,11 @@ events:
       variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-01jvbg'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ooj51e'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_b5d4c
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_b5d4c.dir\\OpenMPTryFlag.cpp.obj /FdCMakeFiles\\cmTC_b5d4c.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-01jvbg\\OpenMPTryFlag.cpp
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b5d4c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_b5d4c.dir\\OpenMPTryFlag.cpp.obj  /out:cmTC_b5d4c.exe /implib:cmTC_b5d4c.lib /pdb:cmTC_b5d4c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_9542c
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_9542c.dir\\OpenMPTryFlag.cpp.obj /FdCMakeFiles\\cmTC_9542c.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-ooj51e\\OpenMPTryFlag.cpp
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_9542c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_9542c.dir\\OpenMPTryFlag.cpp.obj  /out:cmTC_9542c.exe /implib:cmTC_9542c.lib /pdb:cmTC_9542c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -267,8 +267,8 @@ events:
       - "CMakeLists.txt:21 (find_package)"
     description: "Detecting C OpenMP version"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-y0iqo4"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-y0iqo4"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-glhv50"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-glhv50"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -277,11 +277,11 @@ events:
       variable: "OpenMP_SPECTEST_C_"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-y0iqo4'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-glhv50'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_ab67d
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_ab67d.dir\\OpenMPCheckVersion.c.obj /FdCMakeFiles\\cmTC_ab67d.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-y0iqo4\\OpenMPCheckVersion.c
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_ab67d.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ab67d.dir\\OpenMPCheckVersion.c.obj  /out:cmTC_ab67d.exe /implib:cmTC_ab67d.lib /pdb:cmTC_ab67d.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_f7379
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_f7379.dir\\OpenMPCheckVersion.c.obj /FdCMakeFiles\\cmTC_f7379.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-glhv50\\OpenMPCheckVersion.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f7379.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f7379.dir\\OpenMPCheckVersion.c.obj  /out:cmTC_f7379.exe /implib:cmTC_f7379.lib /pdb:cmTC_f7379.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -292,8 +292,8 @@ events:
       - "CMakeLists.txt:21 (find_package)"
     description: "Detecting CXX OpenMP version"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-cu30qh"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-cu30qh"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-wv9tnm"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-wv9tnm"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -302,11 +302,11 @@ events:
       variable: "OpenMP_SPECTEST_CXX_"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-cu30qh'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-wv9tnm'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_f9be5
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_f9be5.dir\\OpenMPCheckVersion.cpp.obj /FdCMakeFiles\\cmTC_f9be5.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-cu30qh\\OpenMPCheckVersion.cpp
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f9be5.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f9be5.dir\\OpenMPCheckVersion.cpp.obj  /out:cmTC_f9be5.exe /implib:cmTC_f9be5.lib /pdb:cmTC_f9be5.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_f34c0
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_f34c0.dir\\OpenMPCheckVersion.cpp.obj /FdCMakeFiles\\cmTC_f34c0.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-wv9tnm\\OpenMPCheckVersion.cpp
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f34c0.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f34c0.dir\\OpenMPCheckVersion.cpp.obj  /out:cmTC_f34c0.exe /implib:cmTC_f34c0.lib /pdb:cmTC_f34c0.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -320,8 +320,8 @@ events:
     checks:
       - "Looking for CL_VERSION_3_0"
     directories:
-      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ltko59"
-      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ltko59"
+      source: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-mp92ur"
+      binary: "C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-mp92ur"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -330,12 +330,12 @@ events:
       variable: "OPENCL_VERSION_3_0"
       cached: true
       stdout: |
-        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-ltko59'
+        Change Dir: 'C:/ParallelProject/Parallel/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-mp92ur'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_85d16
-        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo  -IC:\\ParallelProject\\Parallel\\OpenCL-SDK-v2024.10.24-Win-x64\\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_85d16.dir\\CheckSymbolExists.c.obj /FdCMakeFiles\\cmTC_85d16.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-ltko59\\CheckSymbolExists.c
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_4085a
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\cl.exe  /nologo  -IC:\\ParallelProject\\Parallel\\OpenCL-SDK-v2024.10.24-Win-x64\\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_4085a.dir\\CheckSymbolExists.c.obj /FdCMakeFiles\\cmTC_4085a.dir\\ /FS -c C:\\ParallelProject\\Parallel\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-mp92ur\\CheckSymbolExists.c
         cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_85d16.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_85d16.dir\\CheckSymbolExists.c.obj  /out:cmTC_85d16.exe /implib:cmTC_85d16.lib /pdb:cmTC_85d16.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_4085a.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1442~1.344\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_4085a.dir\\CheckSymbolExists.c.obj  /out:cmTC_4085a.exe /implib:cmTC_4085a.lib /pdb:cmTC_4085a.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
 ...
