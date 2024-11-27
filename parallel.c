@@ -342,7 +342,7 @@ cl_device_id device;
 // ## You may add your own initialization routines here ##
 
 
-
+// Load the kernel source code from the file
 char* loadKernelSource(char* kernelPath) {
     cl_int status;
     FILE* fp;
@@ -385,23 +385,6 @@ void init(){
     
     cl_int status;
 
-
- //   // Get Platform
- //   status = clGetPlatformIDs(1, &platform, NULL);
- //   if (status != CL_SUCCESS) {
- //       printf("Error: Failed to get platform ID (Error Code: %d)\n", status);
- //       exit(EXIT_FAILURE);
- //   }
-	//printf("Platform ID: %p\n", platform);
-
- //   // Get Device
- //   status = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
- //   if (status != CL_SUCCESS) {
- //       printf("Error: Failed to get device ID (Error Code: %d)\n", status);
- //       exit(EXIT_FAILURE);
- //   }
-	//printf("Device ID: %p\n", device);
-
     // Get available OpenCL platforms
     cl_uint ret_num_platforms;
     status = clGetPlatformIDs(0, NULL, &ret_num_platforms);
@@ -414,8 +397,7 @@ void init(){
         printf("Error getting the platforms: %s", clErrorString(status));
     }
 
-    // Print info about the platform. Not needed for functionality,
-    // but nice to see in order to confirm your OpenCL installation
+    // Print info about the platform
     printPlatformInfo(platformId, ret_num_platforms);
 
     // Get available devices
@@ -431,8 +413,8 @@ void init(){
     if (status != CL_SUCCESS) {
         printf("Error getting device ids: %s", clErrorString(status));
     }
-
-    // Again, this only prints nice-to-know information
+    
+	// Print info about the devices
     printDeviceInfo(deviceIds, ret_num_devices);
 
     // Create Context
@@ -466,7 +448,6 @@ void init(){
 	printf("Program: %p\n", program);
 
     // Build Program
-    // Program compiling
     status = clBuildProgram(program, 1, &deviceIds[DEVICE_INDEX], NULL, NULL, NULL);
     if (status != CL_SUCCESS) {
         printf("OpenCL build error: %s\n", clErrorString(status));
@@ -663,8 +644,8 @@ void parallelGraphicsEngine() {
 
 
     // Enqueue the kernel
-    size_t globalWorkSize[] = {WINDOW_WIDTH, WINDOW_HEIGHT};  // Global size of the problem (total number of pixels to compute)
-    size_t localWorkSize[] = {1, 1};
+    size_t globalWorkSize[] = {WINDOW_WIDTH, WINDOW_HEIGHT};
+    size_t localWorkSize[] = {16, 16};
 
 
     status = clEnqueueWriteBuffer(commandQueue, satellitePosBuffer, CL_TRUE, 0, sizeof(floatvector) * satelliteCount, positions, 0, NULL, NULL);
@@ -721,9 +702,9 @@ void parallelGraphicsEngine() {
 
 
 
-// ## You are asked to make this code parallel ##
-// Rendering loop (This is called once a frame after physics engine) 
-// Decides the color for each pixel.
+ /*## You are asked to make this code parallel ##
+ Rendering loop (This is called once a frame after physics engine) 
+ Decides the color for each pixel.*/
 //void parallelGraphicsEngine() {
 //
 //

@@ -13,11 +13,7 @@ __kernel void parallelGraphicsEngine(
     float satelliteRadius              
 )
 {
-    //int i = get_global_id(0); // Global thread index
 
-    //if (i >= windowWidth * windowHeight) return;
-
-    // Compute pixel position
     int pixelX = get_global_id(0);
     int pixelY = get_global_id(1);
 
@@ -26,7 +22,7 @@ __kernel void parallelGraphicsEngine(
     // Initialize pixel color
     float4 renderColor = (float4)(0.0f, 0.0f, 0.0f, 0.0f);
 
-    // Compute distance to the black hole
+
     float2 positionToBlackHole = (float2)(pixelX - mousePosX, pixelY - mousePosY);
     float distToBlackHoleSquared = dot(positionToBlackHole, positionToBlackHole);
 
@@ -42,37 +38,27 @@ __kernel void parallelGraphicsEngine(
 
     // Find closest satellite
     for (int j = 0; j < satelliteCount; ++j) {
-        float2 satellitePos = satellitePositions[j];  // Access satellite position from the buffer
+        float2 satellitePos = satellitePositions[j]; 
         float2 difference = (float2)(pixelX - satellitePos.x, pixelY - satellitePos.y);
         float distance = length(difference);
-
-        //if (i < 20) {
-        //printf("Pixel (%d, %d) - Satellite %d: distance = %f, radius = %f\n", 
-        //        pixelX, pixelY, j, distance, satelliteRadius);
-        //}   
 
 
         if (distance < satelliteRadius) {
             // Pixel is inside a satellite
-            renderColor.x = 1.0f;  // Access satellite color from the buffer
+            renderColor.x = 1.0f;  
             renderColor.y = 1.0f;
             renderColor.z = 1.0f;
 
             hitsSatellite = 1;
-
-            //if (i < 20) {
-            //    printf("Pixel (%d, %d) - Satellite %d: Applying color: (%f, %f, %f)\n",
-            //            pixelX, pixelY, j, renderColor.x, renderColor.y, renderColor.z);
-            //}
-
             break;
+
         } else {
             float weight = 1.0f / (distance * distance * distance * distance);
             weights += weight;
 
             if (distance < shortestDistance) {
                 shortestDistance = distance;
-                renderColor = satelliteColors[j];  // Access satellite color from the buffer
+                renderColor = satelliteColors[j];  
             }
         }
     }
@@ -91,10 +77,6 @@ __kernel void parallelGraphicsEngine(
         }
     }
 
-    //Print debug information for the first few pixels
-    //if (i < 20) {
-    //    printf("Pixel (%d, %d): color(%f, %f, %f)\n", pixelX, pixelY, renderColor.x, renderColor.y, renderColor.z);
-    //}
 
     // Convert color to 8-bit and write to output
     pixels[i] = (uchar4)((uchar)(clamp(renderColor.x, 0.0f, 1.0f) * 255.0f),
