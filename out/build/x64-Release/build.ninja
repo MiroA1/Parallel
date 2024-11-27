@@ -50,7 +50,7 @@ cmake_ninja_workdir = C$:\ParallelProject\Parallel\out\build\x64-Release\
 build cmake_object_order_depends_target_parallel: phony || .
 
 build CMakeFiles\parallel.dir\parallel.c.obj: C_COMPILER__parallel_unscanned_RelWithDebInfo C$:\ParallelProject\Parallel\parallel.c || cmake_object_order_depends_target_parallel
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /Zi /O2 /Ob1 /DNDEBUG /Qvec-report:2 /fp:fast -openmp
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /Zi /O2 /Ob1 /DNDEBUG /Qvec-report:2 /fp:fast /arch:AVX512 -openmp
   INCLUDES = -IC:\ParallelProject\Parallel\parallel -IC:\ParallelProject\Parallel\OpenCL-SDK-v2024.10.24-Win-x64\include -external:IC:\ParallelProject\Parallel\SDL2-2.30.7\cmake\..\include -external:W0
   OBJECT_DIR = CMakeFiles\parallel.dir
   OBJECT_FILE_DIR = CMakeFiles\parallel.dir

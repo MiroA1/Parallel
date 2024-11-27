@@ -29,6 +29,8 @@ int mousePosX;
 int mousePosY;
 
 // These are used to decide the window size
+//#define WINDOW_HEIGHT 1024
+//#define WINDOW_WIDTH  1920
 #define WINDOW_HEIGHT 1024
 #define WINDOW_WIDTH  1920
 #define SIZE WINDOW_WIDTH*WINDOW_HEIGHT
@@ -66,6 +68,13 @@ typedef struct{
    float green;
    float red;
 } color_f32;
+
+typedef struct {
+    float blue;
+    float green;
+    float red;
+	float reserved;
+} color_f32_2;
 
 // Stores rendered colors. Each value may vary from 0 ... 255
 typedef struct{
@@ -315,7 +324,7 @@ printDeviceInfo(cl_device_id* deviceIds, size_t ret_num_devices) {
     }
     printf("\nUsing Device %d.\n", DEVICE_INDEX);
 }
-//
+
 
 
 // Global OpenCL variables
@@ -325,18 +334,12 @@ cl_context context;
 cl_command_queue commandQueue;
 cl_program program;
 cl_kernel kernel;
-
-
-cl_mem d_pixels, d_satellites;
 cl_platform_id platform;
 cl_device_id device;
-cl_mem pixelsBuffer;
-cl_mem satellitesBuffer;
-cl_mem mousePosBuffer;
+
 
 
 // ## You may add your own initialization routines here ##
-
 
 
 
@@ -495,24 +498,6 @@ void init(){
         exit(EXIT_FAILURE);
     }
 
-    // Allocate Memory for Buffers
-    d_pixels = clCreateBuffer(context, CL_MEM_WRITE_ONLY, SIZE * sizeof(color_u8), NULL, &status);
-    if (status != CL_SUCCESS) {
-        printf("Error: Failed to allocate buffer for pixels (Error Code: %d)\n", status);
-        exit(EXIT_FAILURE);
-    }
-
-    d_satellites = clCreateBuffer(context, CL_MEM_READ_ONLY, SATELLITE_COUNT * sizeof(satellite), NULL, &status);
-    if (status != CL_SUCCESS) {
-        printf("Error: Failed to allocate buffer for satellites (Error Code: %d)\n", status);
-        exit(EXIT_FAILURE);
-    }
-
-    mousePosBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, 2 * sizeof(int), NULL, &status);
-    if (status != CL_SUCCESS) {
-        printf("Error: Failed to create OpenCL buffer for mouse position!\n");
-        exit(EXIT_FAILURE);
-    }
 
     printf("Initialization successful!\n");
 
@@ -608,68 +593,125 @@ void parallelGraphicsEngine() {
     int windowHeight = WINDOW_HEIGHT;
     int satelliteCount = SATELLITE_COUNT;
 	float blackHoleRadius = BLACK_HOLE_RADIUS;
+    float satelliteRadius = SATELLITE_RADIUS;
 	int size = SIZE;
 
 
-  cl_mem pixelBuffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, SIZE * sizeof(color_f32), NULL, &status);
+
+    cl_mem pixelBuffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, SIZE * sizeof(color_u8), NULL, &status);
     if (status != CL_SUCCESS) {
         printf("Error: Failed to create pixelBuffer (Error Code: %d)\n", status);
         return;
     }
 
-    cl_mem mousePosXBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(int), &mousePosX, &status);
-    cl_mem mousePosYBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(int), &mousePosY, &status);
-    cl_mem windowWidthBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(int), &windowWidth, &status);
-    cl_mem windowHeightBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(int), &windowHeight, &status);
-    cl_mem satelliteBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, satelliteCount * sizeof(satellite), satellites, &status);
-    cl_mem satelliteCountBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(int), &satelliteCount, &status);
 
-    if (status != CL_SUCCESS) {
-        printf("Error: Failed to create input buffers (Error Code: %d)\n", status);
-        return;
+    floatvector* positions = malloc(sizeof(floatvector) * satelliteCount);
+    color_f32_2* colors = malloc(sizeof(color_f32_2) * satelliteCount);
+
+    for (int i = 0; i < satelliteCount; ++i) {
+        positions[i] = satellites[i].position;
+        positions[i] = satellites[i].position;
+        colors[i].red = satellites[i].identifier.red;
+		colors[i].green = satellites[i].identifier.green;
+		colors[i].blue = satellites[i].identifier.blue;
+        
     }
+
+
+    cl_mem satellitePosBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(floatvector) * satelliteCount, NULL, &status);
+    if (status != CL_SUCCESS) {
+        fprintf(stderr, "OpenCL clCreateBuffer failed\n");
+    }
+    cl_mem satelliteColorBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(color_f32_2) * satelliteCount, NULL, &status);
+    if (status != CL_SUCCESS) {
+        fprintf(stderr, "OpenCL clCreateBuffer failed\n");
+    }
+
 
 
     // Set kernel arguments
-    status = clSetKernelArg(kernel, 0, sizeof(cl_mem), &pixelBuffer);
-    status = clSetKernelArg(kernel, 1, sizeof(cl_mem), &satelliteBuffer);
-    status = clSetKernelArg(kernel, 2, sizeof(int), &windowWidth);
-    status = clSetKernelArg(kernel, 3, sizeof(int), &windowHeight);
-    status = clSetKernelArg(kernel, 4, sizeof(int), &satelliteCount);
-    status = clSetKernelArg(kernel, 5, sizeof(int), &mousePosX);
-    status = clSetKernelArg(kernel, 6, sizeof(int), &mousePosY);
+    status = clSetKernelArg(kernel, 0, sizeof(cl_mem), &pixelBuffer);      // pixel buffer
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 0: %d\n", status); return; }
 
-    if (status != CL_SUCCESS) {
-        printf("Error: Failed to set kernel arguments (Error Code: %d)\n", status);
-        return;
-    }
+    status = clSetKernelArg(kernel, 1, sizeof(cl_mem), &satellitePosBuffer);  // satellite position buffer
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 1: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 2, sizeof(cl_mem), &satelliteColorBuffer); // satellite color buffer
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 2: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 3, sizeof(int), &windowWidth);         // window width
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 3: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 4, sizeof(int), &windowHeight);        // window height
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 4: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 5, sizeof(int), &satelliteCount);      // satellite count
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 5: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 6, sizeof(int), &mousePosX);          // mouse X position
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 6: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 7, sizeof(int), &mousePosY);          // mouse Y position
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 7: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 8, sizeof(float), &blackHoleRadius);  // black hole radius
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 8: %d\n", status); return; }
+
+    status = clSetKernelArg(kernel, 9, sizeof(float), &satelliteRadius);  // satellite radius
+    if (status != CL_SUCCESS) { printf("Error setting kernel arg 9: %d\n", status); return; }
+
 
 
     // Enqueue the kernel
-    size_t globalSize[2] = {windowWidth, windowHeight};  // Global size of the problem (total number of pixels to compute)
-    size_t localSize[2] = {1, 1};
+    size_t globalWorkSize[] = {WINDOW_WIDTH, WINDOW_HEIGHT};  // Global size of the problem (total number of pixels to compute)
+    size_t localWorkSize[] = {1, 1};
 
 
-
-    // Enqueue the kernel for execution
-    status = clEnqueueNDRangeKernel(commandQueue, kernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
+    status = clEnqueueWriteBuffer(commandQueue, satellitePosBuffer, CL_TRUE, 0, sizeof(floatvector) * satelliteCount, positions, 0, NULL, NULL);
     if (status != CL_SUCCESS) {
-        printf("Error: Failed to enqueue kernel (Error Code: %d)\n", status);
+        fprintf(stderr, "OpenCL clCreateBuffer failed\n");
+    }
+
+    status = clEnqueueWriteBuffer(commandQueue, satelliteColorBuffer, CL_TRUE, 0, sizeof(color_f32_2) * satelliteCount, colors, 0, NULL, NULL);
+    if (status != CL_SUCCESS) {
+        fprintf(stderr, "OpenCL clCreateBuffer failed\n");
+    }
+
+
+
+
+    // enqueue the kernel for execution
+    status = clEnqueueNDRangeKernel(commandQueue, kernel, 2, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
+    if (status != CL_SUCCESS) {
+        free(positions);
+        free(colors);
+        clReleaseMemObject(pixelBuffer);
+        clReleaseMemObject(satellitePosBuffer);
+        clReleaseMemObject(satelliteColorBuffer);
+        printf("error: failed to enqueue kernel (error code: %d)\n", status);
+        exit(EXIT_FAILURE);
         return;
     }
-    clFinish(commandQueue);
+
 
     // Read back the results
     status = clEnqueueReadBuffer(commandQueue, pixelBuffer, CL_TRUE, 0, SIZE * sizeof(color_u8), pixels, 0, NULL, NULL);
     if (status != CL_SUCCESS) {
-        printf("Error: Failed to read back pixel data (Error Code: %d)\n", status);
+        free(positions);
+        free(colors);
+        clReleaseMemObject(pixelBuffer);
+        clReleaseMemObject(satellitePosBuffer);
+        clReleaseMemObject(satelliteColorBuffer);
+		printf("Error: Failed to read back pixel data (Error Code: %d)\n", status);
+        exit(EXIT_FAILURE);
         return;
     }
 
-    clReleaseMemObject(pixelBuffer);
-    clReleaseMemObject(mousePosXBuffer);
-    clReleaseMemObject(mousePosYBuffer);
-    clReleaseKernel(kernel);
+	free(positions);
+	free(colors);
+	clReleaseMemObject(pixelBuffer);
+	clReleaseMemObject(satellitePosBuffer);
+	clReleaseMemObject(satelliteColorBuffer);
 
 
 }
@@ -779,9 +821,6 @@ void parallelGraphicsEngine() {
 void destroy(){
 
 
-    clReleaseMemObject(pixelsBuffer);
-    clReleaseMemObject(satellitesBuffer);
-    clReleaseMemObject(mousePosBuffer);
     clReleaseKernel(kernel);
     clReleaseProgram(program);
     clReleaseCommandQueue(commandQueue);

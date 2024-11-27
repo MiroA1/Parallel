@@ -12,7 +12,7 @@ add_executable(parallel parallel.c)
 
 target_compile_options(parallel PRIVATE "/Qvec-report:2")
 target_compile_options(parallel PRIVATE "/fp:fast")
-#target_compile_options(parallel PRIVATE "/arch:AVX512")
+target_compile_options(parallel PRIVATE "/arch:AVX512")
 
 
 
